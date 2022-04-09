@@ -6,7 +6,7 @@ public:
         for(int i=0;i<nums.size();i++)
         
             m[nums[i]]++;
-          //  minh.push(2)
+          
             
         for(auto it=m.begin();it!=m.end();it++)
         {
@@ -18,7 +18,6 @@ public:
         {
             v.push_back(minh.top().second);
             minh.pop();
-        }
-        return v;
+        } return v;
     }
 };
