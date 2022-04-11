@@ -1,21 +1,17 @@
 class Solution {
 public:
-     #define UPPER_LIMIT 2147483647 / 10
-    #define LOWER_LIMIT -2147483648 / 10
-    int reverse(int x) 
-    {
-        int rev=0;
-        int num=x;
-         while (num != 0) {
-        
-        if((rev>0) && (rev> UPPER_LIMIT))
-            return 0;
-         if((rev<0) && (rev<LOWER_LIMIT) )
-            return 0;
-           
-         rev =rev*10+(num%10);
-             num=num/10;
-         }
-        return rev;
+    int reverse(int x) {
+        if(x==INT_MIN) return 0;
+        long n=x<0? -1*x:x;
+        long rev=0;
+        while(n)
+        { long a=n%10;
+            rev=rev*10+a;
+         if(rev>INT_MAX) return 0;
+         n=n/10;
+        }
+        if(x<0)
+            rev =-1*rev;
+         return rev;
     }
 };
