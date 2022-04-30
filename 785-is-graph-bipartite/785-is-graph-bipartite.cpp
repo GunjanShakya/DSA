@@ -12,6 +12,7 @@ public:
     }
     bool isBipartite(vector<vector<int>>& graph) {
         vector<int> vis(graph.size(),-1);
+        
         for(int i=0;i<graph.size();i++)
         {
             if(vis[i]==-1)
@@ -20,10 +21,6 @@ public:
         } 
        
         return true;
-        // for(int i=0;i<graph.size()-1;i++)
-        // {
-        //     if(vis[i]==vis[i+1])
-        //         return false;
-        // } return true;
+       
     }
 };
