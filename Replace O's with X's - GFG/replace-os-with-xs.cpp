@@ -29,14 +29,14 @@ void dfs(int n,int m, vector<vector<char>> &mat)
                 dfs(i,j,mat);
             }
         }
-           for(int i=0;i<n;i++)
+        for(int i=0;i<n;i++)
         {
             for(int j=0;j<m;j++)
-            {
-                if(mat[i][j]=='O') 
-                    mat[i][j]='X';
-                else if(mat[i][j]=='R') 
-                    mat[i][j]='O';
+            { if(mat[i][j]=='O')
+                mat[i][j]='X';
+                else if(mat[i][j]=='R')
+                mat[i][j]='O';
+                
             }
         }
         return mat;
