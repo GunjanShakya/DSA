@@ -17,7 +17,7 @@ public:
         grid[0][0]=1;
         while(!q.empty())
         { ans++; int sz=q.size();
-         for(int i=0;i<sz;i++)
+         while(sz--)
          {
              pair<int,int> p;
          p=q.front();
