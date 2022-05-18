@@ -25,13 +25,11 @@ public:
             {
                 int d1=p.first+dirX[i];
                 int d2=p.second+dirY[i];
-                if(d1>=0 and d1<m and d2>=0 and d2<n) // and v[d1][d2]==5)
-                { if(v[d1][d2]==0)
-                    continue;
-                 if(v[d1][d2]==INT_MAX)
-                 {   v[d1][d2]=v[p.first][p.second]+1;
+                if(d1>=0 and d1<m and d2>=0 and d2<n and v[d1][d2]==INT_MAX) // and v[d1][d2]==5)
+                { 
+                    v[d1][d2]=v[p.first][p.second]+1;
                     q.push({d1,d2}); }
-                }
+                
             }
         } return v;
     }
