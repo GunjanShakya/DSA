@@ -1,22 +1,20 @@
 class Solution {
 public:
-    bool cyclic(int s, vector<bool>&visited, vector<bool>&currVisited, vector<int>adj[]){
-        visited[s] = true;
-        currVisited[s] = true;
-        
-        vector<int>data = adj[s];
-        for(auto x: data){
-            if(!visited[x]){
-                if(cyclic(x, visited, currVisited, adj)){
-                    return true;
-                }
-            }
-            else if(visited[x] && currVisited[x]){
+    bool cyclic(vector<bool> &vis,vector<bool> &dfsvis, vector<int>adj[],int s)
+    {
+        vis[s]=true;
+        dfsvis[s]=true;
+        for(auto it:adj[s])
+        {
+            if(!vis[it])
+            { 
+                if(cyclic(vis,dfsvis,adj,it))
                 return true;
             }
+                else if(vis[it] && dfsvis[it])
+                    return true;
         }
-        
-        currVisited[s] = false;
+        dfsvis[s]=false;
         return false;
     }
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
@@ -35,7 +33,7 @@ public:
         {
             if(!vis[i])
             {
-                if(cyclic(i,vis,dfsvis,adj))
+                if(cyclic(vis,dfsvis,adj,i))
                     return false;
             }
         } return true;
