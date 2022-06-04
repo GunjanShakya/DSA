@@ -23,16 +23,15 @@ public:
         }
         for(int i=1;i<=n;i++)
         {
-            if(rowVisited[i] || check(i,col)) continue; //check for rows and diagonally safety
-            
+            if(rowVisited[i] || check(i,col)) continue;
             rowVisited[i] = true;
             temp.push_back({i,col});
             grid[i-1][col-1] = 'Q';
             func(col+1,n);
             
-            rowVisited[i] = false;  // removing queen from that row
-            temp.pop_back();  //popping out its co-ordinate because we already evaluted it
-            grid[i-1][col-1] = '.';  //making the empty as it is already processed
+            rowVisited[i] = false; 
+            temp.pop_back();  
+            grid[i-1][col-1] = '.';  
         }
     }
     vector<vector<string>> solveNQueens(int n) {
