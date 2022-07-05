@@ -1,29 +1,47 @@
 class Solution {
 public:
-    bool dfs(vector<int> &vis, int node,vector<int> graph[])
+    bool bi(vector<int> adj[],int src, int color[])
     {
-       
-        for(auto it:graph[node])
-        {   if(vis[it]==-1)
-        {vis[it]=1-vis[node];
-            if(!dfs(vis,it,graph)) return false; }
-         else if(vis[it]==vis[node]) return false;
+        color[src]=1;
+        queue<int> q;
+        q.push(src);
+        while(!q.empty())
+        {
+            int node=q.front();
+            q.pop();
+            for(auto it:adj[node])
+            {
+                if(color[it]==-1)
+                {
+                    color[it]=1-color[node];
+                    q.push(it);
+                } 
+                else if(color[it]==color[node])
+                    return  false;
+            }
+        }  return true; 
+    }
+    bool check(vector<int> adj[],int n)
+    {
+        int color[n+1];
+        memset(color,-1,sizeof color);
+        for(int i=1;i<n;i++)
+        {
+            if(color[i]==-1)
+            { 
+                if(!bi(adj,i,color))
+                    return false;
+            }
         } return true;
     }
     bool possibleBipartition(int n, vector<vector<int>>& dislikes) {
-       vector<int> vis(n+1,-1);  vector<int> adj[n+1];
-         for(int i=0; i<dislikes.size(); i++)
+        vector<int> adj[n+1];
+     for(int i=0; i<dislikes.size(); i++)
     {
         adj[dislikes[i][0]].push_back(dislikes[i][1]);
         adj[dislikes[i][1]].push_back(dislikes[i][0]);
-    }
-        for(int i=1;i<=n;i++)
-        {
-            if(vis[i]==-1)
-            {  vis[i]=1;
-              if(!dfs(vis, i,adj)) return false; }
-        } 
-       
-        return true;
+    } 
+        if(check(adj,n)) return true;
+        return false;
     }
 };
