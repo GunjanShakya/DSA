@@ -17,18 +17,21 @@ public:
             }
         } return true;
     }
-
-    bool isBipartite(vector<vector<int>>& graph) {
-       // if(graph.size() % 2!=0)
-       //     return false;
-        int n=graph.size();
-int color[n];
+    bool check(vector<vector<int>> &graph,int n)
+    {
+        int color[n];
         memset(color,-1,sizeof color);
         for(int i=0;i<n;i++)
         {
             if(color[i]==-1)
-            { if(!bi(color,graph,i))
-                    return false; }
+                if(!bi(color,graph,i))
+                    return false;
         } return true;
+    }
+    bool isBipartite(vector<vector<int>>& graph) {
+
+        if(check(graph,graph.size()))
+            return true;
+        return false;
     }
 };
