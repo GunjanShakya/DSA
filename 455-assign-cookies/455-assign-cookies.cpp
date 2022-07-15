@@ -1,6 +1,8 @@
 class Solution {
 public:
     int findContentChildren(vector<int>& g, vector<int>& s) {
+ /********************************************************************************************                                      WITH EXTRA SPACE
+ 
         sort(g.begin(),g.end(),greater<>());
         sort(s.begin(),s.end(),greater<>());
         stack<int> s1,s2; int ctr=0;
@@ -22,5 +24,25 @@ public:
                 s2.pop();
         }
         return ctr;
+********************************************************************************************/        
+        
+         sort(g.begin(), g.end());
+        sort(s.begin(), s.end());
+        
+       int i=0;
+        int j=0;
+        int count = 0;
+        
+        while(i<g.size() && j<s.size()){
+            if(g[i]<=s[j]){
+                count++;
+                i++;
+                j++;
+            }else{
+                j++;
+            }
+        }
+        
+        return count;
     }
 };
