@@ -1,6 +1,7 @@
 class Solution {
 public:
     int minCostClimbingStairs(vector<int>& cost) {
+       //dp sol
         vector<int>t(cost.size()+1); int a,b;
         for(int i=2;i<=cost.size();i++)
         {
