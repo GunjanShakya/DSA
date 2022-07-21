@@ -7,6 +7,8 @@ public:
             sum+=i;
         if(sum%3!=0)
             return false;
+        // if(sum==0)
+        //     return true;
         for(int i=0;i<n;i++)
         {
             s1+=arr[i];
