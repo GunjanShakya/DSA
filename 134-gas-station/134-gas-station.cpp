@@ -43,3 +43,8 @@ public:
         }
     
 };
+
+
+/*
+intution : consider x->y->z if we can reach station y from x then we dont have to bother reaching y from z and we only need to care about reaching from z to x:
+*/
