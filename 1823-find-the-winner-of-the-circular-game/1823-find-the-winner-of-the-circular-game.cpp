@@ -1,19 +1,18 @@
 class Solution {
 public:
-    void solve(int k,int &ans,vector<int>& v,int i)
+    int solve(int k,vector<int>& v,int i)
     {
         if(v.size()==1)
-        {ans=v[0]; return; }
+       return v[0]; 
         int idx=(i+k)% (v.size());
         v.erase(v.begin()+idx);
-        solve(k,ans,v,idx);
-        return;
+    return    solve(k,v,idx);
+    
     }
     int findTheWinner(int n, int k) {
-        int ans=-1; k--; vector<int> v;
+         k--; vector<int> v;
         for(int i=1;i<=n;i++)
             v.push_back(i);
-        solve(k,ans,v,0);
-        return ans;
+      return  solve(k,v,0);
     }
 };
