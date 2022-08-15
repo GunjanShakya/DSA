@@ -11,22 +11,9 @@
  */
 class Solution {
 public:
-   void preorder(TreeNode *root,vector<int> &v)
-   {
-       if(root==NULL)
-       { v.push_back(0); return; }
-       else {
-           v.push_back(root->val);
-           preorder(root->left,v);
-           preorder(root->right,v);
-       }
-   }
     bool isSameTree(TreeNode* p, TreeNode* q) {
-        vector<int> v;
-        preorder(p,v);
-        vector<int> v1;
-        preorder(q,v1);
-        if(v==v1) return true;
-        return false;
+        if(p==NULL && q==NULL) return true;
+        else if(p==NULL or q==NULL) return false;
+        return (p->val==q->val and isSameTree(p->left,q->left) and isSameTree(p->right,q->right));
     }
 };
