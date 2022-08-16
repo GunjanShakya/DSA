@@ -10,7 +10,7 @@
  * };
  */
 class Solution {
-public:
+public:  //If level is odd then print in reverse order
     vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
      vector<vector<int>> ans; queue<TreeNode*> q; int i=0;
         if(root==NULL)
