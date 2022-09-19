@@ -21,8 +21,8 @@ public:
     }
     int maxPathSum(TreeNode* root) {
      int ans=INT_MIN;
-        if(root->left==NULL and root->right==NULL)
-            return root->val;
+        // if(root->left==NULL and root->right==NULL)
+        //     return root->val;
         fn(root,ans);
         return ans;
     }
