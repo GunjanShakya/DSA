@@ -1,14 +1,3 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
 
 // TC-->O((log n))^2;
 class Solution {
@@ -23,23 +12,17 @@ public:
     int hl(TreeNode* root)
     {
         int l=0;
-       // if(!l) return 0;
-        while(root)
-        {
+        while(root){
             l++;
-            root=root->left;
-        }
+            root=root->left; }
         return l;
     }
     int hr(TreeNode* root)
     {
        int l=0;
-       // if(!l) return 0;
-        while(root)
-        {
+        while(root){
             l++;
-            root=root->right;
-        }
+            root=root->right;}
         return l; 
     }
 };
