@@ -25,3 +25,7 @@ public:
         return head;
     }
 };
+
+// TC-> O(N) + O(N-(N%K))  ~ O(N)
+        
+//(to count no of nodes)
