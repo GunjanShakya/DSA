@@ -26,7 +26,7 @@ public:
             vector<int> v=it;
             int x=v[0];
             int y=v[1];
-            adj[x].push_back(y);
+            adj[y].push_back(x);
         }
         vector<bool> vis(n,false),dfsvis(n,false);
         for(int i=0;i<n;i++)
