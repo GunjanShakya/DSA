@@ -1,18 +1,45 @@
 class Solution {
 public:
-    void dfs(int n,vector<int>&vis,vector<vector<int>>&ic,int s)
+    void dfs(int n,int vis[],vector<int> adj[],int s)
     {
         vis[n]=1;
-        for(int i=0;i<s;i++)
+        for(auto it:adj[n])
         {
-            if(ic[n][i] and !vis[i])
-            {
-              dfs(i,vis,ic,s);
-            }
+            if(!vis[it])
+               dfs(it,vis,adj,s); //s wasn't needed here, it was needed in adj matrix approach
         }
+        // for(int i=0;i<s;i++)
+        // {
+        //     if(ic[n][i] and !vis[i])
+        //     {
+        //       dfs(i,vis,ic,s);
+        //     }
+        // }
     }
     int findCircleNum(vector<vector<int>>& ic) {
-        vector<int> vis(ic.size(),0); int ctr=0;
+       int n=ic.size(); int ctr=0;
+        vector<int> adj[n]; int vis[n]; memset(vis,0,sizeof(vis));
+        for(int i=0;i<n;i++)
+        {
+             for(int j=0;j<n;j++)
+             {
+                 if(ic[i][j]==1 and i!=j)
+                 {
+                     adj[i].push_back(j);
+                     adj[j].push_back(i);
+                 }
+             }
+        } 
+        for(int i=0;i<n;i++)
+        {
+            if(!vis[i])
+            {
+                vis[i]=1;
+                dfs(i,vis,adj,n);
+                ctr++;
+            }
+        }
+        /*vector<int> vis(ic.size(),0); int ctr=0;
         for(int i=0;i<ic.size();i++)
         {
             if(!vis[i])
@@ -20,7 +47,8 @@ public:
                 ctr++;
                 dfs(i,vis,ic,ic.size());
             }
-        } return ctr;
+        } */
+        return ctr;
         
     }
 };
