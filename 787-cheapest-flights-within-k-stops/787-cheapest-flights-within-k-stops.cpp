@@ -13,6 +13,7 @@ public:
             int node=q.front().second.first;
             int dis=q.front().second.second;
             q.pop();
+            if(stop>k) continue;
             for(auto it:adj[node])
             {
                 int adjN=it.first;
