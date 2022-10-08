@@ -18,14 +18,14 @@ public:
             int cd=pq.top().first;
             int cn=pq.top().second;
             pq.pop();
-                vector<pair<int,int>>::iterator it;
+                // vector<pair<int,int>>::iterator it;
             for(auto it:g[cn])
             {
                 int nd=it.second;
                 int nn=it.first;
-                if(dis[nn]>dis[cn]+nd)
+                if(dis[nn]>cd+nd)
                 {
-                    dis[nn]=dis[cn]+nd;
+                    dis[nn]=cd+nd;
                     pq.push({dis[nn],nn});
                 }
             }
