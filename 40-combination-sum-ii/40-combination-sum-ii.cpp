@@ -25,3 +25,6 @@ public:
         return ans;
     }
 };
+
+// TC -> 2^n (total subsequences considering all elements are unique) * k (avg length of each combination)
+// SC->k*x (avg length * no of combination)
