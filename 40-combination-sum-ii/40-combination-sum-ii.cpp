@@ -10,7 +10,7 @@ public:
         
             for(int j=i;j<c.size();j++)
             { 
-                if(j>i and c[j]==c[j-1] ) continue;
+                if(j!=i and c[j]==c[j-1] ) continue;
                 if(c[j]>t) break;
                 v.push_back(c[j]);
              solve(c,t-c[j],j+1,ans,v);
