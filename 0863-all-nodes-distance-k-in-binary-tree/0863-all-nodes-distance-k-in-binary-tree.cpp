@@ -25,7 +25,6 @@ public:
         queue<TreeNode*> q;
         q.push(target);
         vis[target]=true;
-        int level=0;
         while(!q.empty())
         {
             int size=q.size();
