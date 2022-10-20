@@ -2,11 +2,11 @@ class Solution {
 public: // Moore's voting algo
     int majorityElement(vector<int>& nums) {
         int ctr=0; int ans=0;
-        for(int i:nums)
+        for(int i=0;i<nums.size();i++)
         {
             if(ctr==0)
-            {ans=i; ctr++; }
-            else if(ans==i)
+            {ans=nums[i]; ctr++; }
+            else if(ans==nums[i])
                 ctr++;
             else ctr--;
         }
