@@ -18,12 +18,10 @@ public:
             }
             if(cnt==0){
                 while(cnt==0){
-                    if(mp.find(s[i])!=mp.end() && mp[s[i]]<0){
-                        mp[s[i]]++; i++;
-                    }
-                    else if(mp.find(s[i])!=mp.end() && mp[s[i]]==0){
-                        break;
-                    }
+                    if(mp.find(s[i])!=mp.end() && mp[s[i]]<0)
+                    {mp[s[i]]++; i++;     }  
+                    else if(mp.find(s[i])!=mp.end() && mp[s[i]]==0)
+                        break;        
                     else i++;
                 }
                 if(len>=j-i+1){
