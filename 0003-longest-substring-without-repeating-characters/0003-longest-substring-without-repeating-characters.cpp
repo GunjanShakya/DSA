@@ -1,5 +1,5 @@
 class Solution {
-public: // SLIDING WINDOW APPROACH
+public: // SLIDING WINDOW 
     int lengthOfLongestSubstring(string s) {
         if(s.length()==0)return 0; 
         unordered_map<char,int> m;  
